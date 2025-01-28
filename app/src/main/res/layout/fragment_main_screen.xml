@@ -5,64 +5,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_app"
-    android:paddingHorizontal="@dimen/_12sdp"
-    tools:context=".MainScreen">
+    tools:context=".mainScreen.presentation.MainScreen">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="@dimen/_92sdp"
-        android:layout_height="@dimen/_92sdp"
-        android:layout_marginTop="@dimen/_30sdp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/iv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:src="@drawable/ic_location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:text="Berlin"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_25sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_location"
+        app:layout_constraintStart_toEndOf="@+id/iv_location"
+        app:layout_constraintTop_toTopOf="@+id/iv_location" />
+
+    <ImageView
+        android:id="@+id/image_weather_condition"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_90sdp"
+        android:scaleType="fitXY"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_city" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_weather_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/_12sdp"
         android:background="@drawable/bg_rounded_corners_stroke"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:paddingVertical="@dimen/_12sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" >
+        app:layout_constraintTop_toBottomOf="@+id/image_weather_condition">
 
         <TextView
             android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Today, 26 January"
-            android:textSize="@dimen/_18sdp"
             android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_6sdp"
             android:text=" 29°"
             android:textColor="@color/white"
-            android:textSize="@dimen/_78sdp"
+            android:textSize="@dimen/_72sdp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_date" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_weather_condition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cloudy"
             android:textColor="@color/white"
-            android:textSize="@dimen/_22sdp"
+            android:textSize="@dimen/_20sdp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_temp" />
 
         <LinearLayout
             android:id="@+id/row_wind_data"
@@ -73,7 +95,7 @@
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            app:layout_constraintTop_toBottomOf="@+id/tv_weather_condition">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -91,9 +113,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_6sdp"
                     android:text="Wind"
-                    android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_17sdp"/>
+                    android:textSize="@dimen/_17sdp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -105,9 +127,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="10 km/h"
-                android:textSize="@dimen/_18sdp"
                 android:textColor="@color/white"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -137,9 +159,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_6sdp"
                     android:text="Hum"
-                    android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_17sdp"/>
+                    android:textSize="@dimen/_17sdp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -151,9 +173,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="29 %"
-                android:textSize="@dimen/_18sdp"
                 android:textColor="@color/white"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -161,11 +183,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_weather_forecast"
         style="@style/Widget.App.Button"
         android:layout_width="@dimen/_162sdp"
         android:layout_height="@dimen/_52sdp"
-        android:layout_marginBottom="@dimen/_60sdp"
         android:backgroundTint="@color/white"
         android:elevation="@dimen/_2sdp"
         android:stateListAnimator="@null"
@@ -174,6 +195,7 @@
         android:textSize="@dimen/_11sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_weather_data" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
