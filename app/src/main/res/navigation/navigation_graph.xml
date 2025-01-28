@@ -7,13 +7,26 @@
 
     <fragment
         android:id="@+id/mainScreen"
-        android:name="com.example.weatherforecast.MainScreen"
+        android:name="com.example.weatherforecast.mainScreen.presentation.MainScreen"
         android:label="fragment_main_screen"
-        tools:layout="@layout/fragment_main_screen" />
+        tools:layout="@layout/fragment_main_screen" >
+
+        <action
+            android:id="@+id/action_mainFragment_to_forecastReportFragment"
+            app:destination="@id/forecastReportScreen" />
+
+    </fragment>
 
     <fragment
-        android:id="@+id/detailedInfoScreen"
-        android:name="com.example.weatherforecast.DetailedInfoScreen"
+        android:id="@+id/forecastReportScreen"
+        android:name="com.example.weatherforecast.forecastReportScreen.presentation.ForecastReportScreen"
         android:label="fragment_detailed_info_screen"
-        tools:layout="@layout/fragment_detailed_info_screen" />
+        tools:layout="@layout/fragment_forecast_report" >
+
+        <argument
+            android:name="location"
+            app:argType="string"/>
+
+    </fragment>
+
 </navigation>
