@@ -26,9 +26,9 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField(
-            type = "string",
+            type = "String",
             name = "apiKey",
-            value = properties.getProperty("apiKey")
+            value = "\"${properties.getProperty("apiKey")}\""
         )
 
     }
@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.play.services.location)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -91,4 +92,6 @@ dependencies {
 
     //scalable ui
     implementation(libs.scalableUi)
+
+   // implementation("recyclerview:1.2.0-alpha02")
 }
